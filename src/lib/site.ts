@@ -1,4 +1,4 @@
-const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
+const basePath = process.env.BASE_PATH || "";
 
 export const site = {
   name: "Saad Eddin Nofal",
@@ -16,7 +16,7 @@ export const site = {
   gitlab: "",
   cvPath: `${basePath}/Saad-Nofal-CV.pdf`,
   basePath,
-  url: "https://saadnofal.dev",
+  url: "https://saadnofal.me",
   localeDefault: "en",
   localeCookie: "locale",
   themeCookie: "theme",

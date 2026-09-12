@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://saadnofal.dev/sitemap.xml",
+    sitemap: "https://saadnofal.me/sitemap.xml",
   };
 }
