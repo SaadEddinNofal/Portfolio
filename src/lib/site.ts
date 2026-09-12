@@ -1,9 +1,10 @@
 const basePath = process.env.BASE_PATH || "";
 
 export const site = {
-  name: "Saad Eddin Nofal",
+  name: "Saad Nofal",
+  fullName: "Saad Eddin Nofal",
   shortName: "Saad Nofal",
-  title: "Software Engineer | .NET Backend Developer",
+  title: "Software Engineer | .NET Developer",
   tagline: "Building reliable software systems from architecture to production.",
   github: "https://github.com/SaadEddinNofal",
   githubHandle: "SaadEddinNofal",
@@ -15,11 +16,18 @@ export const site = {
   phoneHref: "tel:+963993735995",
   gitlab: "",
   cvPath: `${basePath}/Saad-Nofal-CV.pdf`,
+  ogImage: `${basePath}/og-image.png`,
   basePath,
   url: "https://saadnofal.me",
   localeDefault: "en",
   localeCookie: "locale",
   themeCookie: "theme",
+  sameAs: [
+    "https://github.com/SaadEddinNofal",
+    "https://www.linkedin.com/in/saad-nofal/",
+    "https://www.instagram.com/saad_eddin_ibrahim/",
+    "https://www.facebook.com/profile.php?id=100068615084512",
+  ],
 } as const;
 
 export const navItems = [

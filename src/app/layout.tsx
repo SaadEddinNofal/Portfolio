@@ -21,41 +21,119 @@ const plexArabic = IBM_Plex_Sans_Arabic({
 
 const THEME_BOOTSTRAP = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
 
+const siteDescription =
+  "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, Web APIs, Vue.js and modern web development.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      "name": "Saad Nofal",
+      "alternateName": ["Saad Eddin Nofal", "سعد الدين نوفل", "سعد نوفل"],
+      "url": site.url,
+      "image": `${site.url}${site.ogImage}`,
+      "jobTitle": ["Software Engineer", ".NET Developer", "Full Stack Developer"],
+      "description": siteDescription,
+      "telephone": site.phone,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Damascus",
+        "addressCountry": "SY",
+      },
+      "knowsAbout": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "Web API",
+        "Clean Architecture",
+        "Software Engineering",
+        "Vue.js",
+        "Next.js",
+        "GitHub",
+        "CI/CD",
+      ],
+      "sameAs": [...site.sameAs],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      "url": site.url,
+      "name": "Saad Nofal",
+      "description": siteDescription,
+      "inLanguage": ["en", "ar"],
+      "publisher": { "@id": `${site.url}/#person` },
+      "author": { "@id": `${site.url}/#person` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${site.url}/#webpage`,
+      "url": site.url,
+      "name": "Saad Nofal | Software Engineer & .NET Developer",
+      "description": siteDescription,
+      "inLanguage": "en",
+      "isPartOf": { "@id": `${site.url}/#website` },
+      "about": { "@id": `${site.url}/#person` },
+      "mainEntity": { "@id": `${site.url}/#person` },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Saad Nofal | Software Engineer & .NET Backend Developer",
+    default: "Saad Nofal | Software Engineer & .NET Developer",
     template: "%s | Saad Nofal",
   },
-  description:
-    "Portfolio of Saad Eddin Nofal — Software Engineer and .NET Backend Developer specializing in scalable web applications, APIs, Clean Architecture, and real-world software systems.",
+  description: siteDescription,
+  applicationName: "Saad Nofal",
   keywords: [
     "Saad Nofal",
     "Saad Eddin Nofal",
-    ".NET Backend Developer",
+    "سعد نوفل",
+    "سعد الدين نوفل",
     "Software Engineer",
-    "Clean Architecture",
+    ".NET Developer",
+    "Full Stack Developer",
+    ".NET",
+    "C#",
     "ASP.NET Core",
-    "RESTful APIs",
-    "SQL Server",
+    "Clean Architecture",
+    "Web API",
+    "Software Developer",
     "Damascus",
+    "مهندس برمجيات",
+    "مطور .NET",
   ],
-  authors: [{ name: "Saad Eddin Nofal", url: site.github }],
-  creator: "Saad Eddin Nofal",
+  authors: [{ name: "Saad Nofal", url: site.github }],
+  creator: "Saad Nofal",
   alternates: { canonical: "/" },
+  icons: {
+    apple: "/icon.png",
+  },
   openGraph: {
     type: "website",
+    url: "/",
     locale: "en_US",
+    alternateLocale: ["ar_AR"],
     siteName: "Saad Nofal",
-    title: "Saad Nofal | Software Engineer & .NET Backend Developer",
-    description:
-      "Software Engineer and .NET Backend Developer specializing in scalable web applications, APIs, Clean Architecture, and real-world software systems.",
+    title: "Saad Nofal | Software Engineer & .NET Developer",
+    description: siteDescription,
+    images: [
+      {
+        url: `/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Saad Nofal — Software Engineer and .NET Developer",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Saad Nofal | Software Engineer & .NET Backend Developer",
-    description:
-      "Software Engineer and .NET Backend Developer specializing in scalable web applications, APIs, Clean Architecture, and real-world software systems.",
+    card: "summary_large_image",
+    title: "Saad Nofal | Software Engineer & .NET Developer",
+    description: siteDescription,
+    images: [`/og-image.png`],
   },
   robots: { index: true, follow: true },
 };
@@ -81,6 +159,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        />
       </head>
       <body>
         <LanguageProvider>

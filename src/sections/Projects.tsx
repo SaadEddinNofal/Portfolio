@@ -95,7 +95,7 @@ export function Projects() {
                         )}
 
                         <div className="case__block">
-                          <h4 className="case__block-title">{t.projects.blockHighlights}</h4>
+                          <h3 className="case__block-title">{t.projects.blockHighlights}</h3>
                           <ul className="hl-list">
                             {project.highlights.map((h, hIdx) => (
                               <li key={hIdx}>{localize(h)}</li>
@@ -105,7 +105,7 @@ export function Projects() {
 
                         {project.architecture && (
                           <div className="case__block">
-                            <h4 className="case__block-title">{t.projects.blockArch}</h4>
+                            <h3 className="case__block-title">{t.projects.blockArch}</h3>
                             <div className="mini-pipe">
                               {project.architecture.stages.map((stage, sIdx) => (
                                 <Fragment key={sIdx}>
@@ -120,7 +120,7 @@ export function Projects() {
                         )}
 
                         <div className="case__block">
-                          <h4 className="case__block-title">{t.projects.blockTech}</h4>
+                          <h3 className="case__block-title">{t.projects.blockTech}</h3>
                           <div className="case__tags">
                             {project.technologies.map((tech) => (
                               <span className="chip" key={tech}>

@@ -1,4 +1,9 @@
 const en = {
+    meta: {
+      title: "Saad Nofal | Software Engineer & .NET Developer",
+      description:
+        "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, Web APIs, Vue.js and modern web development.",
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -14,11 +19,11 @@ const en = {
     },
     hero: {
       badge: "Available for backend engineering",
-      name: "Saad Eddin Nofal",
-      role: "Software Engineer · .NET Backend Developer",
+      name: "Saad Nofal",
+      role: "Software Engineer · .NET Developer",
       tagline: "Building reliable software systems from architecture to production.",
       intro:
-        "Software Engineer and .NET Backend Developer focused on building scalable web applications, APIs, business systems, and maintainable software architectures.",
+        "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, and Clean Architecture — building scalable web applications, RESTful APIs, and maintainable business systems.",
       ctaPrimary: "View My Work",
       ctaGithub: "GitHub",
       ctaCv: "Download CV",
@@ -27,16 +32,16 @@ const en = {
       meta3: "EN · AR",
       portraitLabel: "identity",
       portraitStatus: "verified",
-      portraitAlt: "Portrait of Saad Eddin Nofal",
+      portraitAlt: "Saad Nofal — Software Engineer and .NET Developer",
       portraitHandle: "@SaadEddinNofal",
       scroll: "scroll",
     },
     about: {
       eyebrow: "About",
-      title: "A backend engineer who thinks in systems.",
-      p1: "I'm a Software Engineer specializing in .NET backend development and system architecture. I enjoy turning real business requirements into maintainable software systems — from API design and database modeling to testing, integration, and deployment.",
+      title: "A software engineer who thinks in systems.",
+      p1: "I'm Saad Nofal, a Software Engineer and .NET Developer focused on backend development, RESTful APIs, and system architecture. I enjoy turning real business requirements into maintainable software systems — from API design and database modeling to testing, integration, and deployment.",
       p2: "I've worked with companies on real-world projects, and I also teach programming and operating systems at Damascus University's Computer Technical Institute.",
-      sign: "Saad Eddin Nofal",
+      sign: "Saad Nofal",
       notesLabel: "field-notes",
       notesCount: "04 records",
       notes: [
@@ -196,6 +201,11 @@ const en = {
 export type Translation = typeof en;
 
 const ar: Translation = {
+  meta: {
+    title: "سعد الدين نوفل | مهندس برمجيات ومطور .NET",
+    description:
+      "سعد الدين نوفل، مهندس برمجيات ومطور .NET متخصص في C# وASP.NET Core وواجهات Web API وClean Architecture وتطوير تطبيقات الويب الحديثة.",
+  },
   nav: {
     home: "الرئيسية",
       about: "عنّي",
@@ -212,10 +222,10 @@ const ar: Translation = {
     hero: {
       badge: "متاح لمشاريع هندسة الباك-إند",
       name: "سعد الدين نوفل",
-      role: "مهندس برمجيات · مطوّر باك-إند .NET",
+      role: "مهندس برمجيات · مطوّر .NET",
       tagline: "أبني أنظمة برمجية موثوقة من البنية وحتى الإنتاج.",
       intro:
-        "مهندس برمجيات ومطوّر باك-إند متخصص في .NET، أركز على بناء تطبيقات ويب قابلة للتوسّع، وواجهات برمجية، وأنظمة أعمال، وبنى برمجية قابلة للصيانة.",
+        "سعد الدين نوفل مهندس برمجيات ومطوّر .NET متخصص في C# وASP.NET Core وClean Architecture، هدفه بناء تطبيقات ويب قابلة للتوسّع وواجهات برمجية موثوقة وأنظمة أعمال قابلة للصيانة.",
       ctaPrimary: "تصفّح أعمالي",
       ctaGithub: "GitHub",
       ctaCv: "تحميل السيرة الذاتية",
@@ -224,14 +234,14 @@ const ar: Translation = {
       meta3: "عربي · English",
       portraitLabel: "الهوية",
       portraitStatus: "موثَّق",
-      portraitAlt: "صورة سعد الدين نوفل",
+      portraitAlt: "سعد الدين نوفل — مهندس برمجيات ومطور .NET",
       portraitHandle: "@SaadEddinNofal",
       scroll: "مرر",
     },
     about: {
       eyebrow: "عنّي",
-      title: "مهندس باك-إند يفكّر في الأنظمة.",
-      p1: "أنا مهندس برمجيات متخصص في تطوير الباك-إند بنظام .NET وهندسة النظم. أحوّل متطلبات الأعمال الحقيقية إلى أنظمة برمجية قابلة للصيانة — من تصميم الواجهات البرمجية ونمذجة قواعد البيانات، حتى الاختبار والدمج والنشر.",
+      title: "مهندس برمجيات يفكّر في الأنظمة.",
+      p1: "أنا سعد الدين نوفل، مهندس برمجيات ومطوّر .NET متخصص في تطوير أنظمة .NET (دوت نت) وهندسة النظم. أحوّل متطلبات الأعمال الحقيقية إلى أنظمة برمجية قابلة للصيانة — من تصميم واجهات Web API ونمذجة قواعد البيانات، حتى الاختبار والدمج والنشر.",
       p2: "عملت مع شركات في مشاريع حقيقية، وأدرّس أيضًا البرمجة وأنظمة التشغيل في المعهد التقاني للحاسوب بجامعة دمشق.",
       sign: "سعد الدين نوفل",
       notesLabel: "ملاحظات ميدانية",
