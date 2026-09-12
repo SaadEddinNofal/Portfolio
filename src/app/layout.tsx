@@ -110,7 +110,11 @@ export const metadata: Metadata = {
   creator: "Saad Nofal",
   alternates: { canonical: "/" },
   icons: {
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",

@@ -34,8 +34,8 @@ export function Projects() {
     <section id="projects" className="section">
       <div className="container">
         <Reveal>
-          <SectionHeader
-            num="04"
+<SectionHeader
+              num="03"
             label={t.projects.eyebrow}
             title={t.projects.title}
             lead={t.projects.lead}

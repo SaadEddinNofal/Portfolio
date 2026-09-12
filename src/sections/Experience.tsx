@@ -14,7 +14,7 @@ export function Experience() {
       <div className="container">
         <Reveal>
           <SectionHeader
-            num="03"
+            num="04"
             label={t.experience.eyebrow}
             title={t.experience.title}
             lead={t.experience.lead}

@@ -32,10 +32,12 @@ export function Portrait() {
         </div>
         <div className="portrait__media">
           <Image
-            src={`${site.basePath}/saad-nofal-portrait.png`}
+            src={`${site.basePath}/saad-nofal-portrait.jpg`}
             alt={t.hero.portraitAlt}
             fill
             priority
+            fetchPriority="high"
+            decoding="async"
             sizes="(min-width: 900px) 420px, (min-width: 640px) 55vw, 92vw"
             style={{ objectFit: "cover" }}
           />
