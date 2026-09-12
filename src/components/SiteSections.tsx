@@ -14,7 +14,7 @@ import { Achievements } from "@/sections/Achievements";
 import { Teaching } from "@/sections/Teaching";
 import { Contact } from "@/sections/Contact";
 
-export default function Page() {
+export function SiteSections() {
   const hasCv = existsSync(join(process.cwd(), "public", "Saad-Nofal-CV.pdf"));
 
   return (

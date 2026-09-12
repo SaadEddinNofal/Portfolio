@@ -4,7 +4,7 @@ import { useLocale } from "@/i18n/LanguageProvider";
 import type { Locale } from "@/lib/types";
 
 export function LanguageSwitch() {
-  const { locale, setLocale, t } = useLocale();
+  const { locale, toggleLocale, t } = useLocale();
 
   return (
     <div className="lang-switch" role="group" aria-label={t.aria.changeLanguage}>
@@ -13,7 +13,9 @@ export function LanguageSwitch() {
           key={l}
           type="button"
           className={`lang-switch__btn ${locale === l ? "is-active" : ""}`}
-          onClick={() => setLocale(l)}
+          onClick={() => {
+            if (locale !== l) toggleLocale();
+          }}
           aria-pressed={locale === l}
           lang={l}
         >

@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useRouter } from "next/navigation";
 import { translations, type Translation } from "./translations";
 import type { Locale, LocaleString } from "@/lib/types";
 import { site } from "@/lib/site";
@@ -24,17 +25,9 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-function readCookieLocale(): Locale {
-  if (typeof document === "undefined") return site.localeDefault;
-  try {
-    const value = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith(`${site.localeCookie}=`))
-      ?.split("=")[1];
-    return value === "ar" ? "ar" : "en";
-  } catch {
-    return site.localeDefault;
-  }
+function applyDocAttributes(locale: Locale) {
+  document.documentElement.lang = locale;
+  document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
 }
 
 function applyDocumentMeta(locale: Locale) {
@@ -44,13 +37,15 @@ function applyDocumentMeta(locale: Locale) {
   desc?.setAttribute("content", meta.description);
 }
 
-function applyDocAttributes(locale: Locale) {
-  document.documentElement.lang = locale;
-  document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-}
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => readCookieLocale());
+export function LanguageProvider({
+  children,
+  initialLocale = site.localeDefault,
+}: {
+  children: ReactNode;
+  initialLocale?: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
+  const router = useRouter();
 
   useEffect(() => {
     applyDocAttributes(locale);
@@ -69,8 +64,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleLocale = useCallback(() => {
-    setLocale(locale === "en" ? "ar" : "en");
-  }, [locale, setLocale]);
+    const next: Locale = locale === "en" ? "ar" : "en";
+    setLocale(next);
+    router.push(next === "ar" ? `${site.basePath}/ar` : `${site.basePath}/`);
+  }, [locale, router, setLocale]);
 
   const value = useMemo<LanguageContextValue>(
     () => ({

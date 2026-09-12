@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Sans_Arabic } from "next
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { PaletteProvider } from "@/components/CommandPalette";
 import { site } from "@/lib/site";
+import { translations } from "@/i18n/translations";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/layout.css";
@@ -21,10 +22,10 @@ const plexArabic = IBM_Plex_Sans_Arabic({
 
 const THEME_BOOTSTRAP = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
 
-const siteDescription =
-  "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, Web APIs, Vue.js and modern web development.";
+const arMetaTitle = translations.ar.meta.title;
+const arMetaDescription = translations.ar.meta.description;
 
-const structuredData = {
+const structuredDataAr = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -32,10 +33,10 @@ const structuredData = {
       "@id": `${site.url}/#person`,
       "name": "Saad Nofal",
       "alternateName": ["Saad Eddin Nofal", "سعد الدين نوفل", "سعد نوفل"],
-      "url": site.url,
+      "url": `${site.url}/ar/`,
       "image": `${site.url}${site.ogImage}`,
       "jobTitle": ["Software Engineer", ".NET Developer", "Full Stack Developer"],
-      "description": siteDescription,
+      "description": arMetaDescription,
       "telephone": site.phone,
       "address": {
         "@type": "PostalAddress",
@@ -61,18 +62,18 @@ const structuredData = {
       "@id": `${site.url}/#website`,
       "url": site.url,
       "name": "Saad Nofal",
-      "description": siteDescription,
-      "inLanguage": ["en", "ar"],
+      "description": arMetaDescription,
+      "inLanguage": ["ar", "en"],
       "publisher": { "@id": `${site.url}/#person` },
       "author": { "@id": `${site.url}/#person` },
     },
     {
       "@type": "WebPage",
-      "@id": `${site.url}/#webpage`,
-      "url": site.url,
-      "name": "Saad Nofal | Software Engineer & .NET Developer",
-      "description": siteDescription,
-      "inLanguage": "en",
+      "@id": `${site.url}/ar/#webpage`,
+      "url": `${site.url}/ar/`,
+      "name": arMetaTitle,
+      "description": arMetaDescription,
+      "inLanguage": "ar",
       "isPartOf": { "@id": `${site.url}/#website` },
       "about": { "@id": `${site.url}/#person` },
       "mainEntity": { "@id": `${site.url}/#person` },
@@ -83,34 +84,34 @@ const structuredData = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Saad Nofal | Software Engineer & .NET Developer",
-    template: "%s | Saad Nofal",
+    default: arMetaTitle,
+    template: `%s | ${site.name}`,
   },
-  description: siteDescription,
-  applicationName: "Saad Nofal",
+  description: arMetaDescription,
+  applicationName: "سعد الدين نوفل",
   keywords: [
-    "Saad Nofal",
-    "Saad Eddin Nofal",
     "سعد نوفل",
     "سعد الدين نوفل",
-    "Software Engineer",
-    ".NET Developer",
-    "Full Stack Developer",
+    "مطور .NET",
+    "مهندس برمجيات",
     ".NET",
     "C#",
     "ASP.NET Core",
     "Clean Architecture",
     "Web API",
-    "Software Developer",
-    "Damascus",
-    "مهندس برمجيات",
-    "مطور .NET",
+    "سوريا",
+    "دمشق",
+    "Saad Nofal",
+    "Saad Eddin Nofal",
+    "Software Engineer",
+    ".NET Developer",
   ],
   authors: [{ name: "Saad Nofal", url: site.github }],
   creator: "Saad Nofal",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/ar/", languages: { en: "/", ar: "/ar/" } },
   icons: {
     icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
       { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-192.png", type: "image/png", sizes: "192x192" },
     ],
@@ -118,25 +119,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "/",
-    locale: "en_US",
-    alternateLocale: ["ar_AR"],
-    siteName: "Saad Nofal",
-    title: "Saad Nofal | Software Engineer & .NET Developer",
-    description: siteDescription,
+    url: "/ar/",
+    locale: "ar_AR",
+    alternateLocale: ["en_US"],
+    siteName: "سعد الدين نوفل",
+    title: arMetaTitle,
+    description: arMetaDescription,
     images: [
       {
         url: `/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Saad Nofal — Software Engineer and .NET Developer",
+        alt: "سعد الدين نوفل — مهندس برمجيات ومطور .NET",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saad Nofal | Software Engineer & .NET Developer",
-    description: siteDescription,
+    title: arMetaTitle,
+    description: arMetaDescription,
     images: [`/og-image.png`],
   },
   robots: { index: true, follow: true },
@@ -155,8 +156,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang={site.localeDefault}
-      dir="ltr"
+      lang="ar"
+      dir="rtl"
       data-theme="light"
       suppressHydrationWarning
       className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${plexArabic.variable}`}
@@ -165,11 +166,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataAr).replace(/</g, "\\u003c") }}
         />
       </head>
       <body>
-        <LanguageProvider>
+        <LanguageProvider initialLocale="ar">
           <PaletteProvider>{children}</PaletteProvider>
         </LanguageProvider>
       </body>
