@@ -1,0 +1,79 @@
+:root {
+  color-scheme: light;
+
+  --font-body: var(--f-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--f-display), var(--f-body), system-ui, sans-serif;
+  --font-mono: var(--f-mono), ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+
+  --bg: #f6f5f1;
+  --bg-soft: #efefeb;
+  --bg-elevated: #fbfbf8;
+  --bg-inset: #e9e9e4;
+  --text: #1e2228;
+  --text-2: #4d565f;
+  --text-3: #7a848e;
+  --accent: #2f5678;
+  --accent-strong: #1c3a55;
+  --accent-soft: rgba(47, 86, 120, 0.09);
+  --accent-softer: rgba(47, 86, 120, 0.05);
+  --accent-cyan: #1d7a89;
+  --cyan-soft: rgba(29, 122, 137, 0.1);
+  --line: #dedfd9;
+  --line-strong: #c4c7c0;
+  --grid-line: rgba(30, 34, 40, 0.05);
+  --shadow-sm: 0 1px 2px rgba(20, 24, 28, 0.05);
+  --shadow-md: 0 8px 24px -12px rgba(20, 24, 28, 0.18);
+  --bg-translucent: rgba(246, 245, 241, 0.82);
+  --btn-primary-text: #f6f5f1;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0c1016;
+  --bg-soft: #11161d;
+  --bg-elevated: #141a22;
+  --bg-inset: #090c11;
+  --text: #e7eaef;
+  --text-2: #9aa3ad;
+  --text-3: #6f7984;
+  --accent: #7fa7cd;
+  --accent-strong: #a5c6e6;
+  --accent-soft: rgba(127, 167, 205, 0.13);
+  --accent-softer: rgba(127, 167, 205, 0.07);
+  --accent-cyan: #5fc0cd;
+  --cyan-soft: rgba(95, 192, 205, 0.11);
+  --line: #222a33;
+  --line-strong: #35404d;
+  --grid-line: rgba(231, 234, 239, 0.045);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 10px 28px -14px rgba(0, 0, 0, 0.55);
+  --bg-translucent: rgba(12, 16, 22, 0.82);
+  --btn-primary-text: #0c1016;
+}
+
+[dir="rtl"] {
+  --font-body: var(--f-arabic), var(--f-body), system-ui, sans-serif;
+  --font-display: var(--f-display), var(--f-arabic), var(--f-body), sans-serif;
+}
+
+* {
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --content-max: 1180px;
+  --nav-h: 68px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--btn-primary-text);
+}
