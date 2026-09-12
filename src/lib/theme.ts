@@ -3,7 +3,12 @@ export type Theme = "light" | "dark";
 const STORAGE_KEY = "theme";
 
 export function applyTheme(theme: Theme): Theme {
-  document.documentElement.setAttribute("data-theme", theme);
+  if (typeof document === "undefined") return theme;
+  const root = document.documentElement;
+  root.classList.add("theme-flip");
+  root.setAttribute("data-theme", theme);
+  void root.offsetWidth;
+  requestAnimationFrame(() => root.classList.remove("theme-flip"));
   try {
     localStorage.setItem(STORAGE_KEY, theme);
   } catch {

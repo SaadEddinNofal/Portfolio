@@ -4,7 +4,7 @@ import { useLocale } from "@/i18n/LanguageProvider";
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { Portrait } from "@/components/Portrait";
-import { IconArrowRight, IconGithub } from "@/components/icons";
+import { IconArrowRight, IconDownload, IconGithub } from "@/components/icons";
 
 export function Hero({ hasCv = false }: { hasCv?: boolean }) {
   const { t } = useLocale();
@@ -49,8 +49,13 @@ export function Hero({ hasCv = false }: { hasCv?: boolean }) {
                 {t.hero.ctaGithub}
               </a>
               {hasCv && (
-                <a href={site.cvPath} className="btn btn--ghost">
+                <a
+                  href={site.cvPath}
+                  download="Saad-Nofal-CV.pdf"
+                  className="btn btn--ghost"
+                >
                   {t.hero.ctaCv}
+                  <IconDownload size={16} />
                 </a>
               )}
             </div>

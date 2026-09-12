@@ -25,6 +25,13 @@ body {
   overflow-x: clip;
 }
 
+html.theme-flip,
+html.theme-flip *,
+html.theme-flip *::before,
+html.theme-flip *::after {
+  transition: none !important;
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
