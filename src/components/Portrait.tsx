@@ -32,7 +32,7 @@ export function Portrait() {
         </div>
         <div className="portrait__media">
           <Image
-            src="/portrait.png"
+            src={`${site.basePath}/portrait.png`}
             alt={t.hero.portraitAlt}
             fill
             priority

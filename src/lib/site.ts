@@ -1,3 +1,5 @@
+const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
+
 export const site = {
   name: "Saad Eddin Nofal",
   shortName: "Saad Nofal",
@@ -12,12 +14,13 @@ export const site = {
   phone: "+963 993 735 995",
   phoneHref: "tel:+963993735995",
   gitlab: "",
-  cvPath: "/Saad-Nofal-CV.pdf",
+  cvPath: `${basePath}/Saad-Nofal-CV.pdf`,
+  basePath,
   url: "https://saadnofal.dev",
   localeDefault: "en",
   localeCookie: "locale",
   themeCookie: "theme",
-};
+} as const;
 
 export const navItems = [
   { id: "home", anchor: "#home" },

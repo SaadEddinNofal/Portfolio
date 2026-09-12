@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { PaletteProvider } from "@/components/CommandPalette";
 import { site } from "@/lib/site";
-import type { Locale } from "@/lib/types";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/layout.css";
@@ -70,17 +68,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const cookieStore = await cookies();
-  const locale: Locale = cookieStore.get(site.localeCookie)?.value === "ar" ? "ar" : "en";
-  const dir: "ltr" | "rtl" = locale === "ar" ? "rtl" : "ltr";
-
   return (
     <html
-      lang={locale}
-      dir={dir}
+      lang={site.localeDefault}
+      dir="ltr"
       data-theme="light"
       suppressHydrationWarning
       className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${plexArabic.variable}`}
@@ -89,7 +83,7 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
       </head>
       <body>
-        <LanguageProvider initialLocale={locale}>
+        <LanguageProvider>
           <PaletteProvider>{children}</PaletteProvider>
         </LanguageProvider>
       </body>

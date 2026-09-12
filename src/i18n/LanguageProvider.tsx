@@ -4,11 +4,11 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
-import { useRouter } from "next/navigation";
 import { translations, type Translation } from "./translations";
 import type { Locale, LocaleString } from "@/lib/types";
 import { site } from "@/lib/site";
@@ -24,30 +24,37 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({
-  initialLocale,
-  children,
-}: {
-  initialLocale: Locale;
-  children: ReactNode;
-}) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale);
-  const router = useRouter();
+function readCookieLocale(): Locale {
+  if (typeof document === "undefined") return site.localeDefault;
+  try {
+    const value = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(`${site.localeCookie}=`))
+      ?.split("=")[1];
+    return value === "ar" ? "ar" : "en";
+  } catch {
+    return site.localeDefault;
+  }
+}
 
-  const setLocale = useCallback(
-    (next: Locale) => {
-      setLocaleState(next);
-      try {
-        document.cookie = `${site.localeCookie}=${next};path=/;max-age=31536000;samesite=lax`;
-        document.documentElement.lang = next;
-        document.documentElement.dir = next === "ar" ? "rtl" : "ltr";
-      } catch {
-        /* ignore */
-      }
-      router.refresh();
-    },
-    [router],
-  );
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [locale, setLocaleState] = useState<Locale>(() => readCookieLocale());
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+  }, [locale]);
+
+  const setLocale = useCallback((next: Locale) => {
+    setLocaleState(next);
+    try {
+      document.cookie = `${site.localeCookie}=${next};path=/;max-age=31536000;samesite=lax`;
+      document.documentElement.lang = next;
+      document.documentElement.dir = next === "ar" ? "rtl" : "ltr";
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   const toggleLocale = useCallback(() => {
     setLocale(locale === "en" ? "ar" : "en");
