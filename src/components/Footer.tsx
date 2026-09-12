@@ -50,7 +50,7 @@ export function Footer() {
             ))}
             <button
               type="button"
-              className="footer__link"
+              className="footer__link footer__top"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <IconArrowUp size={16} />

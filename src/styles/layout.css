@@ -574,6 +574,48 @@ kbd {
   background: var(--accent-softer);
 }
 
+.footer__top {
+  margin-inline-start: 0.5rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--accent-strong), var(--accent));
+  color: var(--btn-primary-text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -6px var(--accent-strong);
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.footer__top svg {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__top:hover {
+  color: var(--btn-primary-text);
+  background: linear-gradient(145deg, var(--accent-strong), var(--accent));
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.footer__top:hover svg {
+  transform: translateY(-2px);
+}
+
+.footer__top:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.footer__top:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+}
+
 .footer__legal {
   display: flex;
   flex-wrap: wrap;
