@@ -17,6 +17,7 @@ export const site = {
   gitlab: "",
   cvPath: `${basePath}/Saad-Nofal-CV.pdf`,
   ogImage: `${basePath}/og-image.png`,
+  copyrightYear: 2026,
   basePath,
   url: "https://saadnofal.me",
   localeDefault: "en",

@@ -257,43 +257,10 @@ a.chip:hover {
   background-size: 44px 44px;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 .text-2 {
   color: var(--text-2);
 }
 
 .text-3 {
   color: var(--text-3);
-}
-
-.link-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--accent);
-}
-
-.link-arrow svg {
-  transition: transform 0.2s ease;
-}
-
-.link-arrow:hover svg {
-  transform: translateX(4px);
-}
-
-[dir="rtl"] .link-arrow:hover svg {
-  transform: translateX(-4px);
 }

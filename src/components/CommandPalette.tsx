@@ -148,6 +148,23 @@ export function PaletteProvider({ children }: { children: ReactNode }) {
     } else if (e.key === "Enter") {
       e.preventDefault();
       if (filtered[activeIndex]) runCommand(filtered[activeIndex]);
+    } else if (e.key === "Tab") {
+      const focusables = Array.from(
+        e.currentTarget.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => el.offsetParent !== null || el === e.currentTarget);
+      if (focusables.length > 0) {
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     } else if (e.key === "Escape") {
       e.preventDefault();
       close();

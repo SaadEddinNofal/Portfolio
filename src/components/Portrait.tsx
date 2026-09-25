@@ -37,7 +37,6 @@ export function Portrait() {
             fill
             priority
             fetchPriority="high"
-            decoding="async"
             sizes="(min-width: 900px) 420px, (min-width: 640px) 55vw, 92vw"
             style={{ objectFit: "cover" }}
           />

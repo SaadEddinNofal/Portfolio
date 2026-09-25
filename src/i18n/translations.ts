@@ -2,7 +2,7 @@ const en = {
     meta: {
       title: "Saad Nofal | Software Engineer & .NET Developer",
       description:
-        "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, Web APIs, Vue.js and modern web development.",
+        "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, and RESTful Web APIs.",
     },
     nav: {
       home: "Home",
@@ -16,6 +16,7 @@ const en = {
       menuClose: "Close menu",
       palette: "Command palette",
       skipToContent: "Skip to content",
+      navLabel: "Primary",
     },
     hero: {
       badge: "Available for backend engineering",
@@ -161,6 +162,7 @@ const en = {
       blurb: "A portfolio built like a system — from architecture to interface.",
       builtWith: "Next.js · React · TypeScript",
       backTop: "Back to top",
+      footerLabel: "Footer",
     },
     palette: {
       title: "Command Palette",
@@ -172,11 +174,11 @@ const en = {
       commands: {
         home: { label: "Go to Home", desc: "section / hero" },
         about: { label: "Go to About", desc: "section / 01" },
-        projects: { label: "Go to Projects", desc: "section / 04" },
-        experience: { label: "Go to Experience", desc: "section / 03" },
+        projects: { label: "Go to Projects", desc: "section / 03" },
+        experience: { label: "Go to Experience", desc: "section / 04" },
         skills: { label: "Go to Skills", desc: "section / 05" },
         achievements: { label: "Go to Achievements", desc: "section / 06" },
-        contact: { label: "Go to Contact", desc: "section / 09" },
+        contact: { label: "Go to Contact", desc: "section / 08" },
         theme: { label: "Toggle theme", desc: "light / dark" },
         language: { label: "Switch language", desc: "العربية / English" },
         github: { label: "Open GitHub profile", desc: "github.com/SaadEddinNofal" },
@@ -218,6 +220,7 @@ const ar: Translation = {
       menuClose: "إغلاق القائمة",
       palette: "لوحة الأوامر",
       skipToContent: "تخطَّ إلى المحتوى",
+      navLabel: "الرئيسية",
     },
     hero: {
       badge: "متاح لمشاريع هندسة الباك-إند",
@@ -363,6 +366,7 @@ const ar: Translation = {
       blurb: "ملف أعمال مُبني كنظام — من البنية إلى الواجهة.",
       builtWith: "Next.js · React · TypeScript",
       backTop: "العودة إلى الأعلى",
+      footerLabel: "التذييل",
     },
     palette: {
       title: "لوحة الأوامر",
@@ -374,11 +378,11 @@ const ar: Translation = {
       commands: {
         home: { label: "الانتقال إلى الرئيسية", desc: "قسم / البداية" },
         about: { label: "الانتقال إلى عنّي", desc: "قسم / ٠١" },
-        projects: { label: "الانتقال إلى المشاريع", desc: "قسم / ٠٤" },
-        experience: { label: "الانتقال إلى الخبرة", desc: "قسم / ٠٣" },
+        projects: { label: "الانتقال إلى المشاريع", desc: "قسم / ٠٣" },
+        experience: { label: "الانتقال إلى الخبرة", desc: "قسم / ٠٤" },
         skills: { label: "الانتقال إلى المهارات", desc: "قسم / ٠٥" },
         achievements: { label: "الانتقال إلى الإنجازات", desc: "قسم / ٠٦" },
-        contact: { label: "الانتقال إلى تواصل", desc: "قسم / ٠٩" },
+        contact: { label: "الانتقال إلى تواصل", desc: "قسم / ٠٨" },
         theme: { label: "تبديل المظهر", desc: "فاتح / داكن" },
         language: { label: "تبديل اللغة", desc: "English / العربية" },
         github: { label: "فتح ملف GitHub", desc: "github.com/SaadEddinNofal" },

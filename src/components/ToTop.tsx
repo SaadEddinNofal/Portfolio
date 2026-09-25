@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/LanguageProvider";
 import { IconArrowUp } from "./icons";
 
 export function ToTop() {
+  const { t } = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export function ToTop() {
       type="button"
       className={`to-top ${visible ? "is-visible" : ""}`}
       onClick={scrollTop}
-      aria-label="Back to top"
+      aria-label={t.footer.backTop}
       tabIndex={visible ? 0 : -1}
     >
       <IconArrowUp size={20} />

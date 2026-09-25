@@ -33,9 +33,9 @@ export function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <Reveal>
-<SectionHeader
-              num="03"
+<Reveal>
+          <SectionHeader
+            num="03"
             label={t.projects.eyebrow}
             title={t.projects.title}
             lead={t.projects.lead}
@@ -45,6 +45,7 @@ export function Projects() {
         <div className="cases">
           {projects.map((project, i) => {
             const isOpen = openId === project.id;
+            const architecture = project.architecture;
             return (
               <Reveal key={project.id} delay={Math.min(i * 40, 160)}>
                 <article className={`case ${isOpen ? "is-open" : ""}`}>
@@ -103,14 +104,14 @@ export function Projects() {
                           </ul>
                         </div>
 
-                        {project.architecture && (
+                        {architecture && (
                           <div className="case__block">
                             <h3 className="case__block-title">{t.projects.blockArch}</h3>
                             <div className="mini-pipe">
-                              {project.architecture.stages.map((stage, sIdx) => (
+                              {architecture.stages.map((stage, sIdx) => (
                                 <Fragment key={sIdx}>
                                   <span className="mini-pipe__stage">{localize(stage)}</span>
-                                  {sIdx < project.architecture!.stages.length - 1 && (
+                                  {sIdx < architecture.stages.length - 1 && (
                                     <IconArrowRight className="mini-pipe__arrow" size={16} />
                                   )}
                                 </Fragment>

@@ -19,7 +19,7 @@ export function Footer() {
         <div className="footer__inner">
           <div>
             <div className="footer__brand">
-              <span className="nav__logo-mark">{site.shortName.split(" ")[0][0]}</span>
+              <span className="nav__logo-mark">SN</span>
               <span>{site.name}</span>
             </div>
             <p className="footer__status" style={{ marginBlockStart: "0.6rem" }}>
@@ -27,7 +27,7 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer" className="footer__links">
+          <nav aria-label={t.footer.footerLabel} className="footer__links">
             {navItems.slice(0, 5).map((item) => (
               <a key={item.id} href={item.anchor} className="footer__link">
                 {t.nav[item.id]}
@@ -61,7 +61,7 @@ export function Footer() {
 
         <div className="footer__legal">
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {site.copyrightYear} {site.name}
           </span>
           <span>{t.footer.blurb}</span>
           <span>⌘ {t.footer.builtWith}</span>

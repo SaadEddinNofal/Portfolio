@@ -737,11 +737,16 @@
 .case__body {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  visibility: hidden;
+  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s linear 0.45s;
 }
 
 .case.is-open .case__body {
   grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s linear 0s;
 }
 
 .case__inner {
@@ -1069,13 +1074,6 @@
 
 .contact {
   text-align: center;
-}
-
-.contact__title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  max-width: 22ch;
-  margin-inline: auto;
-  color: var(--text);
 }
 
 .contact__text {

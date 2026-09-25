@@ -704,8 +704,12 @@ kbd {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .nav__palette-hint {
     display: none;
+  }
+
+  .nav__tools {
+    gap: 0.4rem;
   }
 }

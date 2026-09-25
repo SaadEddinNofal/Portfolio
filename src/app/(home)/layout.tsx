@@ -1,84 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { PaletteProvider } from "@/components/CommandPalette";
 import { site } from "@/lib/site";
+import { fontBody, fontDisplay, fontMono, fontArabic } from "@/lib/fonts";
+import { THEME_BOOTSTRAP } from "@/lib/theme";
+import { buildStructuredData } from "@/lib/structuredData";
+import { translations } from "@/i18n/translations";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/layout.css";
 import "@/styles/sections.css";
 import "@/styles/motion.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--f-body", display: "swap" });
-const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--f-display", display: "swap" });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--f-mono", display: "swap" });
-const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  variable: "--f-arabic",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const THEME_BOOTSTRAP = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
-
-const siteDescription =
-  "Saad Nofal is a Software Engineer and .NET Developer specializing in C#, ASP.NET Core, .NET, Clean Architecture, Web APIs, Vue.js and modern web development.";
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": `${site.url}/#person`,
-      "name": "Saad Nofal",
-      "alternateName": ["Saad Eddin Nofal", "سعد الدين نوفل", "سعد نوفل"],
-      "url": site.url,
-      "image": `${site.url}${site.ogImage}`,
-      "jobTitle": ["Software Engineer", ".NET Developer", "Full Stack Developer"],
-      "description": siteDescription,
-      "telephone": site.phone,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Damascus",
-        "addressCountry": "SY",
-      },
-      "knowsAbout": [
-        "C#",
-        ".NET",
-        "ASP.NET Core",
-        "Web API",
-        "Clean Architecture",
-        "Software Engineering",
-        "Vue.js",
-        "Next.js",
-        "GitHub",
-        "CI/CD",
-      ],
-      "sameAs": [...site.sameAs],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${site.url}/#website`,
-      "url": site.url,
-      "name": "Saad Nofal",
-      "description": siteDescription,
-      "inLanguage": ["en", "ar"],
-      "publisher": { "@id": `${site.url}/#person` },
-      "author": { "@id": `${site.url}/#person` },
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${site.url}/#webpage`,
-      "url": site.url,
-      "name": "Saad Nofal | Software Engineer & .NET Developer",
-      "description": siteDescription,
-      "inLanguage": "en",
-      "isPartOf": { "@id": `${site.url}/#website` },
-      "about": { "@id": `${site.url}/#person` },
-      "mainEntity": { "@id": `${site.url}/#person` },
-    },
-  ],
-};
+const siteDescription = translations.en.meta.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -163,13 +97,13 @@ export default function RootLayout({
       dir="ltr"
       data-theme="light"
       suppressHydrationWarning
-      className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${plexArabic.variable}`}
+      className={`${fontBody.variable} ${fontDisplay.variable} ${fontMono.variable} ${fontArabic.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildStructuredData("en")).replace(/</g, "\\u003c") }}
         />
       </head>
       <body>

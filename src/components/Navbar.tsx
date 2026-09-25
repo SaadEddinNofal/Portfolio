@@ -64,7 +64,7 @@ export function Navbar() {
             <span>{site.shortName}</span>
           </a>
 
-          <nav aria-label="Primary">
+          <nav aria-label={t.nav.navLabel}>
             <ul className="nav__links">
               {navItems.map((item) => (
                 <li key={item.id}>

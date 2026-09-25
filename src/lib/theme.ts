@@ -2,6 +2,8 @@ export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
 
+export const THEME_BOOTSTRAP = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
+
 export function applyTheme(theme: Theme): Theme {
   if (typeof document === "undefined") return theme;
   const root = document.documentElement;
