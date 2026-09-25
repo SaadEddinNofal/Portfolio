@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   creator: "Saad Nofal",
   alternates: {
     canonical: "/",
-    languages: { en: "/", ar: "/ar/" },
+    languages: { "x-default": "/", en: "/", ar: "/ar/" },
   },
   icons: {
     icon: [

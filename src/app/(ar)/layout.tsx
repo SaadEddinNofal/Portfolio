@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Saad Nofal", url: site.github }],
   creator: "Saad Nofal",
-  alternates: { canonical: "/ar/", languages: { en: "/", ar: "/ar/" } },
+  alternates: { canonical: "/ar/", languages: { "x-default": "/", en: "/", ar: "/ar/" } },
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },

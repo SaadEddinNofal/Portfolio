@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ar: "https://saadnofal.me/ar/",
+          "x-default": "https://saadnofal.me/",
         },
       },
     },
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: "https://saadnofal.me/",
+          "x-default": "https://saadnofal.me/",
         },
       },
     },
